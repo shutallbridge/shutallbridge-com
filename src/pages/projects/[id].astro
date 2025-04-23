@@ -1,9 +1,5 @@
 ---
 import { getCollection, render } from "astro:content";
-import { Layout } from "@/components/layout";
-import { ExternalLink } from "@/components/external-link";
-import { FrontMatter } from "@/components/front-matter";
-import { Bento } from "@/components/bento";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -17,45 +13,4 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<Layout>
-  <body class="font-sans">
-    <article class="mx-auto px-6 max-w-3xl my-12">
-      <h1 class="text-3xl mb-4">
-        {project.data.title}
-      </h1>
-      <p class="mb-11 text-lg text-gray-700">
-        {project.data.summary}
-      </p>
-      <div class="mb-11 w-screen relative left-1/2 right-1/2 mx-[-50vw]">
-        <div class="flex justify-center px-6">
-          <Bento.Root>
-            <Bento.Item class="bg-gray-300" />
-            <Bento.Item class="bg-gray-300" />
-            <Bento.Item class="bg-gray-300" />
-            <Bento.Item class="bg-gray-300" />
-            <Bento.Item class="bg-gray-300" />
-          </Bento.Root>
-        </div>
-      </div>
-      <FrontMatter.Root class="mb-11">
-        <FrontMatter.Item>
-          <FrontMatter.Title>Duration</FrontMatter.Title>
-          <FrontMatter.Content>{project.data.duration}</FrontMatter.Content>
-        </FrontMatter.Item>
-        <FrontMatter.Item>
-          <FrontMatter.Title>Links</FrontMatter.Title>
-          <FrontMatter.Content class="flex gap-x-2">
-            {
-              project.data.links.map((project) => (
-                <ExternalLink href={project.url}>{project.label}</ExternalLink>
-              ))
-            }
-          </FrontMatter.Content>
-        </FrontMatter.Item>
-      </FrontMatter.Root>
-      <div class="prose">
-        <Content components={{ h1: "h2" }} />
-      </div>
-    </article>
-  </body>
-</Layout>
+<Content components={{ h1: "h2" }} />

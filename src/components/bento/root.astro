@@ -1,9 +1,11 @@
 ---
 import { type HTMLAttributes } from "astro/types";
 
-export interface Props extends HTMLAttributes<"div"> {}
+export interface Props extends HTMLAttributes<"div"> {
+  layout: "sydney5";
+}
 
-const { class: className, ...rest } = Astro.props;
+const { layout, class: className, ...rest } = Astro.props;
 ---
 
 <style is:global>
@@ -76,7 +78,7 @@ const { class: className, ...rest } = Astro.props;
 </style>
 
 <div class:list={["bento-query-container", className]} {...rest}>
-  <div class="bento-grid sydney-5">
+  <div class:list={["bento-grid", { "sydney-5": layout === "sydney5" }]}>
     <slot />
   </div>
 </div>

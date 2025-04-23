@@ -12,6 +12,47 @@ links:
   ]
 ---
 
+import { Image } from "astro:assets";
+import { ProjectLayout } from "@/layouts/project-layout";
+import { Bento } from "@/components/bento";
+import tileAPrompts from "./tile-a-prompts.png";
+import tileCSide from "./tile-c-side.png";
+import tileDChat from "./tile-d-chat.png";
+import tileECursor from "./tile-e-cursor.png";
+
+<ProjectLayout {...frontmatter}>
+
+<div slot="content-header" class="flex justify-center px-6">
+  <Bento.Root layout="sydney5">
+    <Bento.Item class="bg-fuchsia-50 overflow-clip">
+      <Image
+        src={tileAPrompts}
+        alt=""
+        class="w-full h-auto max-w-[192px] mx-auto mt-6"
+      />
+    </Bento.Item>
+    <Bento.Item class="bg-fuchsia-50 flex justify-center items-center">
+      <div class="flex gap-x-2 items-center">
+        <div class="w-10 h-10 rounded-full bg-fuchsia-300" />
+        <div class="text-black text-3xl">Harper</div>
+      </div>
+    </Bento.Item>
+    <Bento.Item class="bg-fuchsia-200 overflow-clip relative">
+      <div class="w-[620px] h-auto absolute top-0 right-0 mt-6 mr-6">
+        <Image src={tileCSide} alt="" />
+      </div>
+    </Bento.Item>
+    <Bento.Item class="bg-fuchsia-200 overflow-clip relative @container">
+      <div class="w-[620px] h-auto mt-6 absolute top-0 left-0 ml-6 @min-[calc(496px+200px)]:static @min-[calc(496px+200px)]:mx-auto">
+        <Image src={tileDChat} alt="" />
+      </div>
+    </Bento.Item>
+    <Bento.Item class="bg-fuchsia-50 overflow-clip flex justify-center items-center">
+      <Image src={tileECursor} alt="" class="w-full h-auto max-w-[169px]" />
+    </Bento.Item>
+  </Bento.Root>
+</div>
+
 # Overview
 
 Business software has become vital to how modern organizations operate—streamlining operations, scaling workflows, and centralizing data. But users still spend a significant amount of time learning how to use a system, searching for the right screen in a deeply nested dashboard, or filling in repetitive forms--time better spent on thoughtful, strategic work.
@@ -34,3 +75,5 @@ This project began while I was interning as a design engineer at Tofu – an acc
 I was assigned to research and prototype ways to tackle these issues, and worked independently under the supervision of the product manager and the CTO. Along the way, I collaborated with the company’s AI engineer to better understand the capabilities and limitations of LLMs, which informed the prototype’s technical decisions.
 
 After the internship, I continued developing the concept independently. I realized the challenges of complexity and repetition weren’t unique to payroll—they exist across many business tools. This led to Harper ERP: an open-source, hypothetical ERP system focused on applicant tracking, built as a playground for exploring new patterns in human-AI collaboration.
+
+</ProjectLayout>

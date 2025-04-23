@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", "sans-serif";
+}
+
+.prose {
+  /* default element spacing */
+  & > * {
+    @apply mb-4;
+  }
+
+  /* remove default spacing from last element */
+  & > *:last-child {
+    @apply mb-0;
+  }
+
+  & > h2 {
+    @apply text-2xl;
+  }
+
+  & > ul {
+    @apply list-disc;
+  }
+
+  & > ol {
+    @apply list-decimal;
+  }
+
+  & > ul,
+  & > ol {
+    @apply pl-5;
+  }
+
+  & li {
+    @apply mb-2;
+  }
+
+  /* extra space before headings */
+  & * + h2 {
+    @apply mt-10;
+  }
+}

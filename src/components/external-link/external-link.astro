@@ -1,0 +1,16 @@
+---
+import { type HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+
+export interface Props extends HTMLAttributes<"a"> {}
+
+const { ...rest } = Astro.props;
+---
+
+<a
+  class="inline-flex gap-x-2.5 items-center text-sm text-gray-900 px-2.5 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-sm"
+  {...rest}
+>
+  <slot />
+  <Icon name="lucide:external-link" />
+</a>

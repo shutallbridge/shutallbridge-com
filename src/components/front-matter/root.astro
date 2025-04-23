@@ -1,0 +1,14 @@
+---
+import { type HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"div"> {}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+  class:list={["space-y-5 border-y border-gray-200 py-6", className]}
+  {...rest}
+>
+  <slot />
+</div>

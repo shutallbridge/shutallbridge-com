@@ -10,35 +10,37 @@ export interface Props extends z.infer<typeof projectSchema> {}
 const { title, summary, duration, links } = Astro.props;
 ---
 
-<BaseLayout>
-  <article class="mx-auto px-6 max-w-3xl my-12">
-    <h1 class="text-3xl mb-4">{title}</h1>
-    <p class="mb-11 text-lg text-gray-700">
-      {summary}
-    </p>
-    <div class="mb-11 w-screen relative left-1/2 right-1/2 mx-[-50vw]">
-      <slot name="content-header" />
-    </div>
-    <FrontMatter.Root class="mb-11">
-      <FrontMatter.Item>
-        <FrontMatter.Title>Duration</FrontMatter.Title>
-        <FrontMatter.Content>
-          {duration}
-        </FrontMatter.Content>
-      </FrontMatter.Item>
-      <FrontMatter.Item>
-        <FrontMatter.Title>Links</FrontMatter.Title>
-        <FrontMatter.Content class="flex gap-x-2">
-          {
-            links.map((link) => (
-              <ExternalLink href={link.url}>{link.label}</ExternalLink>
-            ))
-          }
-        </FrontMatter.Content>
-      </FrontMatter.Item>
-    </FrontMatter.Root>
-    <div class="prose">
+<BaseLayout title={title}>
+  <article>
+    <header>
+      <h1 class="text-3xl mb-4">{title}</h1>
+      <p class="mb-11 text-lg text-gray-700">
+        {summary}
+      </p>
+      <div class="mb-11 w-screen relative left-1/2 right-1/2 mx-[-50vw]">
+        <slot name="content-header" />
+      </div>
+      <FrontMatter.Root class="mb-11">
+        <FrontMatter.Item>
+          <FrontMatter.Title>Duration</FrontMatter.Title>
+          <FrontMatter.Content>
+            {duration}
+          </FrontMatter.Content>
+        </FrontMatter.Item>
+        <FrontMatter.Item>
+          <FrontMatter.Title>Links</FrontMatter.Title>
+          <FrontMatter.Content class="flex gap-x-2">
+            {
+              links.map((link) => (
+                <ExternalLink href={link.url}>{link.label}</ExternalLink>
+              ))
+            }
+          </FrontMatter.Content>
+        </FrontMatter.Item>
+      </FrontMatter.Root>
+    </header>
+    <section class="prose">
       <slot name="default" />
-    </div>
+    </section>
   </article>
 </BaseLayout>

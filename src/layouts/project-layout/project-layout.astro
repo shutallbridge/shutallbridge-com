@@ -1,17 +1,17 @@
 ---
 import { z } from "astro:content";
-import { projectSchema } from "@/content.config";
+import { projectSchemaWithoutCover } from "@/content.config";
 import { BaseLayout } from "@/layouts/base-layout";
 import { FrontMatter } from "@/components/front-matter";
 import { ExternalLink } from "@/components/external-link";
 
-export interface Props extends z.infer<typeof projectSchema> {}
+export interface Props extends z.infer<typeof projectSchemaWithoutCover> {}
 
 const { title, summary, duration, links } = Astro.props;
 ---
 
 <BaseLayout title={title}>
-  <article>
+  <article class="max-w-3xl px-6 mx-auto">
     <header>
       <h1 class="text-3xl mb-4">{title}</h1>
       <p class="mb-11 text-lg text-gray-700">

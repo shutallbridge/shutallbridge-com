@@ -10,7 +10,7 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Projects", url: "/projects" },
+  { label: "Projects", url: "/" },
   { label: "About", url: "/about" },
 ];
 
@@ -42,9 +42,11 @@ const { title } = Astro.props;
     <link rel="icon" type="image/png" href="/logo.png" />
     <title>{title}</title>
   </head>
-  <body class="min-h-full font-sans flex flex-col items-center">
-    <header class="mb-10 w-full sticky top-0 z-50 bg-white py-4 px-6">
-      <nav class="flex items-center justify-between max-w-5xl mx-auto">
+  <body
+    class="min-h-full font-sans text-shadow-gray-950 flex flex-col items-center"
+  >
+    <header class="w-full max-w-5xl sticky top-0 z-50 bg-white py-4 px-6 mb-10">
+      <nav class="flex items-center justify-between">
         <a href="/">
           <Image
             src={logo}
@@ -68,7 +70,7 @@ const { title } = Astro.props;
         </ul>
       </nav>
     </header>
-    <main class="mb-28 px-6 w-full max-w-3xl">
+    <main class="mb-28 w-full">
       <slot />
     </main>
     <footer

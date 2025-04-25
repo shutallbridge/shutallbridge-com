@@ -2,6 +2,7 @@
 import { z } from "astro:content";
 import { projectSchemaWithoutCover } from "@/content.config";
 import { BaseLayout } from "@/layouts/base-layout";
+import { FullBleed } from "@/components/full-bleed";
 import { FrontMatter } from "@/components/front-matter";
 import { ExternalLink } from "@/components/external-link";
 
@@ -16,9 +17,9 @@ const { title, summary, duration, links } = Astro.props;
     <p class="mb-11 text-lg text-gray-700">
       {summary}
     </p>
-    <div class="mb-11 w-screen relative left-1/2 right-1/2 mx-[-50vw]">
+    <FullBleed class="mb-11">
       <slot name="content-header" />
-    </div>
+    </FullBleed>
     <FrontMatter.Root class="mb-11">
       <FrontMatter.Item>
         <FrontMatter.Title>Duration</FrontMatter.Title>

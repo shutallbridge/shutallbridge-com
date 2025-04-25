@@ -1,0 +1,15 @@
+---
+import { type HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"div"> {}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+  data-component="full-bleed"
+  class:list={["w-screen relative left-1/2 right-1/2 mx-[-50vw]", className]}
+  {...rest}
+>
+  <slot />
+</div>

@@ -11,12 +11,17 @@ featuredOrder: 2
 import { Image } from "astro:assets";
 import { ProjectLayout } from "@/layouts/project-layout";
 import { Bento } from "@/components/bento";
+import { FullBleed } from "@/components/full-bleed";
+import { ImageDisplay } from "@/components/image-display";
 import tileADeskWork from "./tile-a-desk-work.png";
 import tileBProject from "./tile-b-project.png";
 import tileCStudents from "./tile-c-students.png";
 import tileDBriefs from "./tile-d-briefs.png";
 import tileELogo from "./tile-e-logo.png";
 import tileFHome from "./tile-f-home.png";
+import websiteHome from "./website-home.png";
+import websiteProject from "./website-project.png";
+import archetypes from "./archetypes.png";
 
 <ProjectLayout {...frontmatter}>
 
@@ -71,9 +76,39 @@ I worked closely with ADP’s Senior Project Officer, who coordinated the overal
 
 The team provided the year’s visual identity up front, including colors, typography and illustrations, which I used as the foundation for the website design. I worked in two phases–first design, then development–with regular check-ins to gather feedback and ensure alignment with the show’s evolving needs.
 
+<FullBleed>
+  <ImageDisplay
+    src={websiteHome}
+    alt=""
+    class="w-full max-w-5xl mx-auto px-6"
+    bleed="bottom"
+    noRadius
+  />
+</FullBleed>
+
+<FullBleed>
+  <ImageDisplay
+    src={websiteProject}
+    alt=""
+    class="w-full max-w-5xl mx-auto px-6"
+    bleed="bottom"
+    noRadius
+  />
+</FullBleed>
+
 # Designing the Website
 
 I began by working with the project officer to define the website’s primary users and their goals. We identified three key groups: graduating students, family and friends unable to attend in-person, and prospective students exploring the ADP’s programs.
+
+<FullBleed>
+  <ImageDisplay
+    src={archetypes}
+    alt=""
+    class="w-full max-w-5xl mx-auto px-6"
+    bleed="bottom"
+    noRadius
+  />
+</FullBleed>
 
 Keeping these archetypes in mind, I designed an information architecture that supports both casual exploration and targeted browsing. The homepage highlights staff-selected projects, while filters by brief or program help users find specific types of work.
 

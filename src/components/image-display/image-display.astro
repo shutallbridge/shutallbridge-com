@@ -1,0 +1,42 @@
+---
+import { type HTMLAttributes } from "astro/types";
+import { type ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+export interface Props extends HTMLAttributes<"div"> {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+  bleed?: "top" | "bottom" | "left" | "right" | "all";
+  noRadius?: boolean;
+}
+
+const {
+  src,
+  alt,
+  caption,
+  bleed,
+  noRadius = false,
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+<div
+  data-component="image-display"
+  class:list={["space-y-2", className]}
+  {...rest}
+>
+  <div
+    class:list={[
+      "bg-gray-100 rounded-sm",
+      { "px-4 pt-4": bleed === "bottom" },
+      { "px-4 pb-4": bleed === "top" },
+      { "pr-4 py-4": bleed === "left" },
+      { "pl-4 py-4": bleed === "right" },
+    ]}
+  >
+    <Image src={src} alt={alt} class:list={[{ "rounded-sm": !noRadius }]} />
+  </div>
+  {caption ? <p class="text-sm text-gray-500 text-center">{caption}</p> : null}
+</div>

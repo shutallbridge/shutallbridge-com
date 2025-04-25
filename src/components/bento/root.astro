@@ -2,7 +2,7 @@
 import { type HTMLAttributes } from "astro/types";
 
 export interface Props extends HTMLAttributes<"div"> {
-  layout: "sydney5";
+  layout: "sydney5" | "tokyo6";
 }
 
 const { layout, class: className, ...rest } = Astro.props;
@@ -68,9 +68,9 @@ const { layout, class: className, ...rest } = Astro.props;
     @container (min-width: calc(2 * 232px + 1 * 16px)) {
       grid-template-areas:
         "A B"
-        "A C"
-        "D D"
-        "E E";
+        "A E"
+        "C C"
+        "D D";
     }
     @container (min-width: calc(4 * 232px + 3 * 16px)) {
       grid-template-areas:
@@ -78,10 +78,38 @@ const { layout, class: className, ...rest } = Astro.props;
         "A D D E";
     }
   }
+
+  .tokyo-6 {
+    grid-template-areas:
+      "A"
+      "B"
+      "C"
+      "D"
+      "E"
+      "F";
+    @container (min-width: calc(2 * 232px + 1 * 16px)) {
+      grid-template-areas:
+        "A B"
+        "E B"
+        "C D"
+        "F F";
+    }
+    @container (min-width: calc(4 * 232px + 3 * 16px)) {
+      grid-template-areas:
+        "A B C D"
+        "E B F F";
+    }
+  }
 </style>
 
 <div class:list={["bento-query-container", className]} {...rest}>
-  <div class:list={["bento-grid", { "sydney-5": layout === "sydney5" }]}>
+  <div
+    class:list={[
+      "bento-grid",
+      { "sydney-5": layout === "sydney5" },
+      { "tokyo-6": layout === "tokyo6" },
+    ]}
+  >
     <slot />
   </div>
 </div>

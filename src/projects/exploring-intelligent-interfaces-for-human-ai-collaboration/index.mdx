@@ -40,13 +40,13 @@ import tileECursor from "./tile-e-cursor.png";
         <div class="text-black text-3xl">Harper</div>
       </div>
     </Bento.Item>
-    <Bento.Item class="bg-fuchsia-200 overflow-clip relative">
-      <div class="w-[620px] h-auto absolute top-0 right-0 mt-6 mr-6">
+    <Bento.Item class="bg-fuchsia-200 overflow-clip relative @container">
+      <div class="w-[620px] h-auto absolute top-0 right-0 pt-6 pr-6 @min-[calc(480px+100px)]:static @min-[calc(480px+100px)]:mx-auto">
         <Image src={tileCSide} alt="" />
       </div>
     </Bento.Item>
     <Bento.Item class="bg-fuchsia-200 overflow-clip relative @container">
-      <div class="w-[620px] h-auto mt-6 absolute top-0 left-0 ml-6 @min-[calc(496px+200px)]:static @min-[calc(496px+200px)]:mx-auto">
+      <div class="w-[620px] h-auto pt-6 absolute top-0 left-0 pl-6 @min-[calc(480px+100px)]:static @min-[calc(480px+100px)]:mx-auto">
         <Image src={tileDChat} alt="" />
       </div>
     </Bento.Item>

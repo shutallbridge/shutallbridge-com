@@ -1,0 +1,197 @@
+---
+title: "Creating a Roadmap to Bring AI to Invoice Processing"
+summary: "A research-driven initiative to uncover how AI can enhance back office work – culminating in a clear product direction focused on AI invoice processing."
+duration: "October 2024 - February 2025"
+links: [{ label: "Tofu BonsAI", url: "https://www.gotofu.com/" }]
+cover: "./cover-mock.png"
+coverAlt: ""
+featuredOrder: 1
+---
+
+import { Image } from "astro:assets";
+import { ProjectLayout } from "@/layouts/project-layout";
+import { Bento } from "@/components/bento";
+import tileAMockDashboard from "./tile-a-mock-dashboard.png";
+import tileCWorkflow from "./tile-c-workflow.png";
+import tileDAnalysis from "./tile-d-analysis.png";
+import tileEMockInvoice from "./tile-e-mock-invoice.png";
+
+<ProjectLayout {...frontmatter}>
+
+<Fragment slot="content-header">
+  <Bento.Root layout="sydney5" class="max-w-5xl px-6 mx-auto">
+    <Bento.Item class="bg-cyan-800 border border-cyan-800 overflow-clip relative">
+      <div class="px-6 pt-6 lg:absolute lg:w-[318px] lg:left-0 lg:top-1/2 lg:-translate-y-1/2 lg:pl-6">
+        <Image src={tileAMockDashboard} alt="" />
+      </div>
+    </Bento.Item>
+    <Bento.Item class="bg-cyan-800 border border-cyan-800 flex justify-center items-center">
+      <div class="text-4xl font-medium text-white">BonsAI</div>
+    </Bento.Item>
+    <Bento.Item class="bg-cyan-800 border border-cyan-800 overflow-clip relative @container">
+      <div class="absolute top-0 right-0 pt-6 pr-6 w-[593px] @min-[calc(480px+100px)]:static @min-[calc(480px+100px)]:mx-auto @min-[calc(480px+100px)]:px-0">
+        <Image src={tileCWorkflow} alt="" />
+      </div>
+    </Bento.Item>
+    <Bento.Item class="bg-cyan-800 border border-cyan-800 overflow-clip relative @container">
+      <div class="absolute top-0 w-[562px] left-0 pl-6 pt-6 @min-[calc(480px+100px)]:static @min-[calc(480px+100px)]:mx-auto @min-[calc(480px+100px)]:px-0">
+        <Image src={tileDAnalysis} alt="" />
+      </div>
+    </Bento.Item>
+    <Bento.Item class="bg-cyan-800 border border-cyan-800 overflow-hidden">
+      <Image src={tileEMockInvoice} alt="" class="mx-6 mt-6" />
+    </Bento.Item>
+  </Bento.Root>
+</Fragment>
+
+# Overview
+
+Heading into late 2024, large language models (LLMs) continued to advance rapidly, with reasoning models capable of handling more complex, multi-step tasks starting to emerge. Tofu, a payroll software company, saw an opportunity to apply these advancements across a broader range of back-office functions, including payroll, accounting, HR, and payments.
+
+The vision was simple: to eliminate repetitive back-office work through an autonomous system, allowing humans to focus on higher-value tasks. Drawing from the company’s experience in the payroll space, it was clear how tedious and time-consuming back-office operations could be. We wanted to let AI handle predictable, repetitive work—so that back-office specialists could focus on areas where their expertise truly shines.
+
+# Goals
+
+To bring this vision to life, we set out with the following goals:
+
+- Understand the day-to-day realities of back-office work – including payroll, accounting, HR, and payments.
+- Discover pain points and identify opportunities where AI can meaningfully reduce friction or manual effort.
+- Prototype and validate concepts with domain specialists to inform a clear and actionable product direction.
+
+To make this possible, we partnered closely with GoGlobal, a sister company and back-office provider with deep operational expertise. Their teams became both our domain specialists and early testers, helping us ground ideas in real-world workflows and validate concepts.
+
+# Role and Process
+
+I joined the initiative as a technical product manager, working closely with a small, fast-moving team led by the CEO and CTO. Our core group included a customer success manager (CSM) and three engineers – a mix of AI specialists and full-stack developers.
+
+My role focused on three main areas:
+
+1. Understand the needs of stakeholders across various back-office domains.
+2. Leverage my technical insights to spot opportunities where new advancements (especially in LLMs and reasoning models) could meaningfully enhance workflows.
+3. Collaborate cross-functionally to shape and align the long-term product direction.
+
+# Key Outcomes
+
+**Identified Invoice Processing As The Most Promising Initial Focus**
+
+Through product discovery and strategic analysis, we found that integrating AI to facilitate end-to-end AP invoice processing was the clearest and most feasible initial focus. It was a suitable task for LLMs, widely relevant to potential customers and easy to quantify impact.
+
+_I helped to uncover this opportunity by co-leading user research and synthesizing actionable insights that helped the team align on this focus._
+
+**Alignment on Immediate Next Steps and Long-Term Direction**
+
+By the end of the project phase, we had a clear product direction–AI invoice processing APIs, integrations and a dashboard to automatically process the invoices into existing accounting software like Xero, all while adhering to local accounting practices.
+
+_I supported this alignment by shaping the product requirements, creating concept wireframes and outlining longer-term milestones for the AI product, working closely with engineers and leadership throughout._
+
+**Leveraged a Competitive Data Advantage**
+
+Our access to historical invoice data from GoGlobal provided a strong foundation to train and evaluate LLMs, giving us a competitive moat.
+
+_I highlighted this opportunity and advocated focusing on specific workflow tasks that leveraged this advantage._
+
+**Product Now in Early Testing with Adopters**
+
+As of March 2025, the team is onboarding early adopters and iterating based on real usage.
+
+_The early discovery and product framing I led helped lay the foundation for this ongoing traction._
+
+# Kicking Off Product Discovery
+
+We began with a discovery phase to understand real-world back-office operations at GoGlobal, a business processing outsourcing (BPO) provider. Our research objectives focused on four key areas:
+
+**Understand The Day-To-Day Workflows, Responsibilities, And Tools Handled By BPO Operators**
+
+_To design effective solutions, we needed a detailed understanding of BPO operators’ day-to-day workflows—not just at a high level, but down to the specific tasks, tools, and responsibilities involved. By mapping these workflows, we aimed to identify repetitive, time-consuming, or error-prone processes where AI could provide meaningful support or automation._
+
+**Identify Key Challenges And Friction Points BPO Operators Face In Their Workflows, And Explore How They Currently Workaround Or Resolve These Issues**
+
+_Pain points are opportunities: we set out to uncover moments of friction operators encounter in their daily work—whether caused by tools, processes, or organizational bottlenecks. We also wanted to understand how operators are currently adopting or working around these challenges, as it could reveal gaps in existing systems and surface opportunities._
+
+**Understand What Success Looks Like From The BPO Operator’s Perspective, Including Performance Metrics, Personal Goals, And Sources Of Motivation**
+
+_While the primary buyers of our product are business decision makers seeking to enhance back office operations, our end users include BPO employees across a range of roles and levels. As such, it was important to understand how success is defined at each of these levels–whether through business metrics, personal goals, or day-to-day motivators–so that our solution could align with their expectations and needs._
+
+**Explore Perceptions, Expectations And Concerns BPO Operators Have About Automation And AI Tools In Their Work**
+
+_If users are skeptical, anxious, or resistant to AI tools, it would be of a risk to us. We wanted to understand BPO operators’ expectations to help guide product positioning and build solutions that can be trusted._
+
+Working with GoGlobal gave us quick access to a variety of BPO roles. While we knew this might skew our perspective toward one company, their depth of experience made them the best partner for early research.
+
+# Contextual Inquiries
+
+We started our discovery with contextual inquiries, directly observing back-office specialists as they worked. This approach allowed us to see not just the tasks themselves, but also the surrounding context — workflow triggers, handoffs, and ad hoc processes that often don’t surface in interviews.
+
+We chose to focus on payroll for this study. While most of GoGlobal’s operations are based in Malaysia, their Japan-specific payroll and HR work is handled by a local team — in the same office as Tofu. This made in-person observation both accessible and far more insightful than remote sessions.
+
+As a payroll BPO, GoGlobal manages payroll processing on behalf of client companies. Each month, they receive updated employment details like salary agreements, time sheets, and health insurance deductions. Using this information, they calculate payroll — factoring in overtime, taxes, and insurance — and make payments directly to the client’s employees.
+
+Before diving in, I familiarized myself with Japanese payroll laws and practices to better understand the workflows. Over the course of two weeks, I observed payroll specialists in their day-to-day work, with each session typically lasting around two to four hours.
+
+To make sense of the observations, I mapped out workflow diagrams that captured steps, tools, and decisions involved in each stage of the payroll process.
+
+By analyzing these workflows alongside my field notes, I was able to surface the following key insights.
+
+**Payroll specialists do more than run numbers on payroll software–they navigate legal ambiguities and interpret past data because they act as an intermediary between payroll information given by non-expert clients and legally compliant payroll processing.**
+
+The way BPO clients share payroll information like salaries, bonuses, or commissions may not always align with how these categories are defined under payroll law. This creates ambiguity payroll specialists must resolve through legal knowledge and context.
+
+This reveals an opportunity to reduce friction between client input and compliant payroll output so that payroll specialists can ensure better accuracy and compliance.
+
+**Payroll specialists regularly search for and interpret up-to-date or less common legal regulations—often relying on scattered sources and manual calculations.**
+
+They may need to dig through government websites, legal PDFs, and lawyer blogs, then create one-off Excel formulas—sometimes without clear results. These non-routine tasks interrupt workflow and require time-consuming research.
+
+There’s an opportunity to improve how specialists access, interpret, and apply payroll legal knowledge in their day-to-day work.
+
+**Payroll specialists frequently switch between multiple tools–even within a single workflow–because of fragmented systems and inconsistent data formats.**
+
+Whether entering payroll instructions, calculating work hours, or verifying deductions, they juggle platforms like Outlook, Blue Ocean (payroll platform), Bugyo (payroll calculator), and SmartHR (HR software). This constant switching slows down tasks and increases the risk of manual errors.
+
+There’s an opportunity to reduce operational friction by streamlining workflows—freeing specialists to focus on higher-value, expert tasks rather than repetitive tool-hopping.
+
+# User Interviews
+
+After conducting contextual inquiries with payroll specialists, we shifted our focus to remote user interviews with BPO operators across Malaysia and other GoGlobal locations. Our goal was to broaden our understanding of responsibilities, pain points, and goals across a wider range of back-office roles and varying levels of experience.
+
+We prepared open-ended questions and conducted semi-structured interviews. This allowed us to follow a consistent line of inquiry while also diving deeper into individual experiences through follow-up questions. Over the course of two weeks, we interviewed 21 back-office operators working in accounting, payments, tax, payroll, entity management, and HR support.
+
+> Can you walk me through a typical day in your role?
+
+> How do you define success in your role?
+
+> Tell me about a time where you used a particular tool or software and it made you effective in your work?
+
+> What are the biggest challenges or frustrations you encounter in your day-to-day work?
+
+We recognized that user interviews don’t offer the same contextual depth as inquiries—for example, we couldn’t observe how participants interacted with their software, and the level of detail varied depending on what they could recall. However, interviews allowed us to efficiently expand our reach across more roles and locations, providing rich insights within a tight timeline.
+
+The interviews were analyzed using a combination of flowcharting and thematic analysis. A swimlane flowchart helped us visualize end-to-end workflows and understand how different teams collaborate across functions. Thematic analysis allowed us to identify recurring pain points, as well as surface participants’ goals and underlying values.
+
+Through thematic analysis, we synthesized patterns across interviews to uncover recurring challenges, values, and behaviors. This helped us surface four key insights:
+
+**BPO operators work under constant pressure to be accurate because even small mistakes in payments or reporting can lead to serious financial and compliance consequences.**
+
+Across roles, operators consistently expressed anxiety about making mistakes—particularly in high-stakes tasks like payments, invoicing, and statutory contributions. Errors such as paying the wrong vendor, miscalculating service fees, or missing salary deadlines can lead to penalties, client dissatisfaction, or breaches in compliance.
+
+To manage this risk, teams often implement manual safeguards, such as requiring screenshots at key steps or maintaining detailed SOPs. While these measures add a layer of control, they also introduce friction and don’t fully eliminate the possibility of human error. This highlights an opportunity to explore solutions that support accuracy and confidence.
+
+**BPO operators view timeliness and accuracy as a reflection of their professionalism, but they’re often held back by competing priorities, coordination delays and limited bandwidth.**
+
+Delivering accurate and timely work is central to how BPO operators define success. They seek to build trust, maintain client satisfaction and uphold their professional standards. But this ideal is often challenged by the reality of their work: juggling multiple clients, tight deadlines, and tasks that are dependent on others’ inputs or approvals.
+
+There is an opportunity to support operators by providing clearer prioritization systems, highlighting coordination across functions, and reducing bottlenecks.
+
+**Local accounting knowledge is essential for BPO specialists to perform their work accurately, but fragmented sources, inconsistent documentation, and gaps across countries make it difficult to access and maintain.**
+
+Specialists depend on country-specific tax rules, statutory requirements, and local processes to deliver accurate and compliant services. Yet accessing this knowledge—especially when onboarding clients in new countries—is often a challenge. Information is scattered across Excel files, internal platforms, and informal channels, with no clear single source of truth. This not only slows down workflows but also increases the risk of relying on outdated or incomplete guidance.
+
+There’s an opportunity to improve how local knowledge is captured, organized, and shared—so specialists can easily access reliable information and feel confident in delivering high-quality service across regions.
+
+**BPO operators spend a significant amount of time on repetitive tasks–manually stitching together fragmented systems using tools like Excel–leaving less time for expert work.**
+
+To complete routine workflows, operators often switch between Xero, bank portals, Excel, SharePoint, and email—extracting data, converting files, and cleaning templates by hand. Excel acts as a “glue” to connect these systems, but this manual work slows them down and diverts focus from higher-value tasks.
+
+There’s an opportunity to streamline these workflows by reducing the need for manual data handling and system-switching—freeing operators to focus on expert, judgment-based work.
+
+</ProjectLayout>

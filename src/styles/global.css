@@ -19,6 +19,14 @@
     @apply text-2xl;
   }
 
+  & strong {
+    @apply font-bold;
+  }
+
+  & em {
+    @apply italic;
+  }
+
   & > ul {
     @apply list-disc;
   }

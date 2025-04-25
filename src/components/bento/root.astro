@@ -11,22 +11,25 @@ const { layout, class: className, ...rest } = Astro.props;
 <style is:global>
   .bento-query-container {
     container-type: inline-size;
-    width: 100%;
-    max-width: calc(240px * 4 + 16px * 3);
   }
 
   .bento-grid {
     display: grid;
-    grid-auto-rows: 240px;
     gap: 16px;
+
+    /* w-5xl = 1024px */
+    /* px-6 = 24px */
+    /* gap = 16px */
+    /* cell width at 4 columns = (1024-2*24-3*16)/4 = 232px */
 
     /* css variable doesn't work as a container query */
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    @container (min-width: calc(240px * 2 + 16px * 1)) {
+    grid-auto-rows: 232px;
+    @container (min-width: calc(2 * 232px + 1 * 16px)) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    @container (min-width: calc(240px * 4 + 16px * 3)) {
-      grid-template-columns: repeat(4, minmax(0, 240px));
+    @container (min-width: calc(4 * 232px + 3 * 16px)) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     & > *:nth-child(1) {
@@ -62,14 +65,14 @@ const { layout, class: className, ...rest } = Astro.props;
       "C"
       "D"
       "E";
-    @container (min-width: calc(240px * 2 + 16px * 1)) {
+    @container (min-width: calc(2 * 232px + 1 * 16px)) {
       grid-template-areas:
         "A B"
         "A C"
         "D D"
         "E E";
     }
-    @container (min-width: calc(240px * 4 + 16px * 3)) {
+    @container (min-width: calc(4 * 232px + 3 * 16px)) {
       grid-template-areas:
         "A B C C"
         "A D D E";

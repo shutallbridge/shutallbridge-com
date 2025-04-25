@@ -25,8 +25,8 @@ import tileECursor from "./tile-e-cursor.png";
 
 <ProjectLayout {...frontmatter}>
 
-<div slot="content-header" class="flex justify-center px-6">
-  <Bento.Root layout="sydney5">
+<Fragment slot="content-header">
+  <Bento.Root layout="sydney5" class="max-w-5xl px-6 mx-auto">
     <Bento.Item class="bg-fuchsia-50 overflow-clip">
       <Image
         src={tileAPrompts}
@@ -54,7 +54,7 @@ import tileECursor from "./tile-e-cursor.png";
       <Image src={tileECursor} alt="" class="w-full h-auto max-w-[169px]" />
     </Bento.Item>
   </Bento.Root>
-</div>
+</Fragment>
 
 # Overview
 

@@ -51,8 +51,10 @@ const { main } = styles ?? {};
   <body
     class="min-h-full font-sans text-shadow-gray-950 flex flex-col items-center"
   >
-    <header class="w-full max-w-5xl sticky top-0 z-50 bg-white py-4 px-6 mb-10">
-      <nav class="flex items-center justify-between">
+    <header class="w-full sticky top-0 z-50 bg-white mb-10">
+      <nav
+        class="w-full max-w-5xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
         <a href="/">
           <Image
             src={logo}
@@ -79,7 +81,7 @@ const { main } = styles ?? {};
     <main class:list={["mb-28 w-full", main]}>
       <slot />
     </main>
-    <footer class="mt-auto w-full bg-gray-50">
+    <footer class="w-full mt-auto bg-gray-50">
       <div
         class="w-full max-w-5xl mx-auto px-6 flex flex-col gap-y-2 sm:flex-row sm:justify-between sm:items-center py-14"
       >

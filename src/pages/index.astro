@@ -11,18 +11,21 @@ const featuredProjects = (
 ).sort((a, b) => (a.data.featuredOrder ?? 0) - (b.data.featuredOrder ?? 0));
 ---
 
-<BaseLayout title="Shu Takahashi">
-  <header class="max-w-5xl mx-auto px-6 mt-32 mb-44">
-    <p class="max-w-[50ch] text-2xl">
+<BaseLayout
+  title="Shu Takahashi"
+  styles={{ main: "w-full max-w-5xl mx-auto px-6" }}
+>
+  <header class="mt-12 mb-28">
+    <p class="max-w-[50ch] text-2xl leading-10">
       <span>Hi. I'm Shu, a designer and developer based in Sydney.</span>
       <a
         href="projects/exploring-intelligent-interfaces-for-human-ai-collaboration"
-        class="text-gray-500 hover:underline decoration-gray-500"
+        class="text-gray-600 hover:underline decoration-gray-500"
         >Currently building a library for building intelligent interfaces.
       </a>
     </p>
   </header>
-  <section class="max-w-5xl mx-auto px-6 space-y-8">
+  <section class="space-y-6">
     <h1>Featured Projects</h1>
     <div class="space-y-14">
       {

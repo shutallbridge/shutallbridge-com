@@ -10,37 +10,37 @@ export interface Props extends z.infer<typeof projectSchemaWithoutCover> {}
 const { title, summary, duration, links } = Astro.props;
 ---
 
-<BaseLayout title={title}>
-  <article class="max-w-3xl px-6 mx-auto">
-    <header>
-      <h1 class="text-3xl mb-4">{title}</h1>
-      <p class="mb-11 text-lg text-gray-700">
-        {summary}
-      </p>
-      <div class="mb-11 w-screen relative left-1/2 right-1/2 mx-[-50vw]">
-        <slot name="content-header" />
-      </div>
-      <FrontMatter.Root class="mb-11">
-        <FrontMatter.Item>
-          <FrontMatter.Title>Duration</FrontMatter.Title>
-          <FrontMatter.Content>
-            {duration}
-          </FrontMatter.Content>
-        </FrontMatter.Item>
-        <FrontMatter.Item>
-          <FrontMatter.Title>Links</FrontMatter.Title>
-          <FrontMatter.Content class="flex gap-x-2">
-            {
-              links.map((link) => (
-                <ExternalLink href={link.url}>{link.label}</ExternalLink>
-              ))
-            }
-          </FrontMatter.Content>
-        </FrontMatter.Item>
-      </FrontMatter.Root>
-    </header>
-    <section class="prose">
-      <slot name="default" />
-    </section>
-  </article>
+<BaseLayout title={title} styles={{ main: "w-full max-w-3xl px-6 mx-auto" }}>
+  <header>
+    <h1 class="text-3xl mb-4">{title}</h1>
+    <p class="mb-11 text-lg text-gray-700">
+      {summary}
+    </p>
+    <div class="mb-11 w-screen relative left-1/2 right-1/2 mx-[-50vw]">
+      <slot name="content-header" />
+    </div>
+    <FrontMatter.Root class="mb-11">
+      <FrontMatter.Item>
+        <FrontMatter.Title>Duration</FrontMatter.Title>
+        <FrontMatter.Content>
+          {duration}
+        </FrontMatter.Content>
+      </FrontMatter.Item>
+      <FrontMatter.Item>
+        <FrontMatter.Title>Links</FrontMatter.Title>
+        <FrontMatter.Content class="flex gap-x-2">
+          {
+            links.map((link) => (
+              <ExternalLink size="sm" href={link.url}>
+                {link.label}
+              </ExternalLink>
+            ))
+          }
+        </FrontMatter.Content>
+      </FrontMatter.Item>
+    </FrontMatter.Root>
+  </header>
+  <section class="prose">
+    <slot name="default" />
+  </section>
 </BaseLayout>

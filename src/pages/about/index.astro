@@ -1,7 +1,59 @@
 ---
 import { BaseLayout } from "@/layouts/base-layout";
+import { ExternalLink } from "@/components/external-link";
 ---
 
-<BaseLayout title="About">
-  <p>About page</p>
+<BaseLayout
+  title="About"
+  styles={{ main: "w-full max-w-[72ch] lg:max-w-5xl mx-auto px-6" }}
+>
+  <section class="flex flex-col gap-y-4 lg:flex-row lg:gap-x-4 mb-10">
+    <h1 class="text-2xl lg:min-w-80 text-gray-600">Profile</h1>
+    <div class="space-y-4">
+      <p>
+        Hi, I’m a designer and developer currently based in Sydney, Australia. I
+        create digital products end-to-end – blending human-centered design with
+        technical execution.
+      </p>
+      <p>
+        Currently, I’m exploring human–AI collaboration in interface design by
+        building an open-source experimental ERP dashboard. I’m also assisting
+        research at the Designing with AI Lab at the University of Sydney,
+        focusing on user research and technical prototyping.
+      </p>
+      <p>
+        Previously, I contributed as a technical product manager at Tofu, an
+        accounting software company focused on leveraging AI in back-office
+        workflows. I’ve also worked with startups and a non-profit through
+        internships and contract roles, supporting design, product strategy, and
+        software development.
+      </p>
+    </div>
+  </section>
+  <hr class="border-gray-200 mb-10" />
+  <section class="flex flex-col gap-y-4 lg:flex-row lg:gap-x-4">
+    <h1 class="text-2xl lg:min-w-80 text-gray-600">Get in Touch</h1>
+    <div class="space-y-8">
+      <p>
+        If you're interested in collaborating, chatting about design/tech, or
+        just want to say hi, feel free to reach out to me at any of the channels
+        below:
+      </p>
+      <div class="space-y-2">
+        <ExternalLink
+          href="https://www.linkedin.com/in/shutakahashi"
+          size="md"
+          fullWidth>LinkedIn</ExternalLink
+        >
+        <ExternalLink href="https://x.com/shutallbridge" size="md" fullWidth
+          >Twitter/X</ExternalLink
+        >
+        <ExternalLink
+          href="mailto:shu.takahashi@protonmail.com"
+          size="md"
+          fullWidth>shu.takahashi@protonmail.com</ExternalLink
+        >
+      </div>
+    </div>
+  </section>
 </BaseLayout>

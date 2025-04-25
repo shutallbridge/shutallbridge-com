@@ -2,15 +2,33 @@
 import { type HTMLAttributes } from "astro/types";
 import { Icon } from "astro-icon/components";
 
-export interface Props extends HTMLAttributes<"a"> {}
+export interface Props extends HTMLAttributes<"a"> {
+  fullWidth?: boolean;
+  size?: "sm" | "md";
+}
 
-const { ...rest } = Astro.props;
+const {
+  class: className,
+  fullWidth = false,
+  size = "sm",
+  ...rest
+} = Astro.props;
 ---
 
 <a
-  class="inline-flex gap-x-2.5 items-center text-sm text-gray-900 px-2.5 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-sm"
+  class:list={[
+    "inline-flex gap-x-2.5 items-center text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-sm",
+    { "w-full justify-between": fullWidth },
+    { "text-sm px-2.5 py-1.5": size === "sm" },
+    { "text-sm px-3 py-2": size === "md" },
+    className,
+  ]}
   {...rest}
 >
   <slot />
-  <Icon name="lucide:external-link" />
+  <span class="text-md">
+    <slot name="icon">
+      <Icon name="lucide:external-link" />
+    </slot>
+  </span>
 </a>

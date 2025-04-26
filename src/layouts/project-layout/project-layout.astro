@@ -2,6 +2,7 @@
 import { z } from "astro:content";
 import { projectSchemaWithoutCover } from "@/content.config";
 import { BaseLayout } from "@/layouts/base-layout";
+import { Prose } from "@/components/prose";
 import { FullBleed } from "@/components/full-bleed";
 import { FrontMatter } from "@/components/front-matter";
 import { ExternalLink } from "@/components/external-link";
@@ -41,7 +42,7 @@ const { title, summary, duration, links } = Astro.props;
       </FrontMatter.Item>
     </FrontMatter.Root>
   </header>
-  <section class="prose">
+  <Prose as="section">
     <slot name="default" />
-  </section>
+  </Prose>
 </BaseLayout>

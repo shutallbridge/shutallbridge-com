@@ -11,6 +11,8 @@ featuredOrder: 1
 import { Image } from "astro:assets";
 import { ProjectLayout } from "@/layouts/project-layout";
 import { Bento } from "@/components/bento";
+import { Callout } from "@/components/callout";
+import { Prose } from "@/components/prose";
 import tileAMockDashboard from "./tile-a-mock-dashboard.png";
 import tileCWorkflow from "./tile-c-workflow.png";
 import tileDAnalysis from "./tile-d-analysis.png";
@@ -72,49 +74,150 @@ My role focused on three main areas:
 
 # Key Outcomes
 
-**Identified Invoice Processing As The Most Promising Initial Focus**
+<Callout.Root>
+
+<Callout.Title slot="title">
+  Identified Invoice Processing As The Most Promising Initial Focus
+</Callout.Title>
+
+<Callout.Default>
+{/* <Prose> */}
 
 Through product discovery and strategic analysis, we found that integrating AI to facilitate end-to-end AP invoice processing was the clearest and most feasible initial focus. It was a suitable task for LLMs, widely relevant to potential customers and easy to quantify impact.
 
 _I helped to uncover this opportunity by co-leading user research and synthesizing actionable insights that helped the team align on this focus._
 
-**Alignment on Immediate Next Steps and Long-Term Direction**
+{/* </Prose> */}
+
+</Callout.Default>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.Title slot="title">
+  Alignment on Immediate Next Steps and Long-Term Direction
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 By the end of the project phase, we had a clear product direction–AI invoice processing APIs, integrations and a dashboard to automatically process the invoices into existing accounting software like Xero, all while adhering to local accounting practices.
 
 _I supported this alignment by shaping the product requirements, creating concept wireframes and outlining longer-term milestones for the AI product, working closely with engineers and leadership throughout._
 
-**Leveraged a Competitive Data Advantage**
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.Title slot="title">
+  Leveraged a Competitive Data Advantage
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 Our access to historical invoice data from GoGlobal provided a strong foundation to train and evaluate LLMs, giving us a competitive moat.
 
 _I highlighted this opportunity and advocated focusing on specific workflow tasks that leveraged this advantage._
 
-**Product Now in Early Testing with Adopters**
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.Title slot="title">
+  Product Now in Early Testing with Adopters
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 As of March 2025, the team is onboarding early adopters and iterating based on real usage.
 
 _The early discovery and product framing I led helped lay the foundation for this ongoing traction._
 
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
+
 # Kicking Off Product Discovery
 
 We began with a discovery phase to understand real-world back-office operations at GoGlobal, a business processing outsourcing (BPO) provider. Our research objectives focused on four key areas:
 
-**Understand The Day-To-Day Workflows, Responsibilities, And Tools Handled By BPO Operators**
+<Callout.Root>
+
+<Callout.Title slot="title">
+  Understand The Day-To-Day Workflows, Responsibilities, And Tools Handled By
+  BPO Operators
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 _To design effective solutions, we needed a detailed understanding of BPO operators’ day-to-day workflows—not just at a high level, but down to the specific tasks, tools, and responsibilities involved. By mapping these workflows, we aimed to identify repetitive, time-consuming, or error-prone processes where AI could provide meaningful support or automation._
 
-**Identify Key Challenges And Friction Points BPO Operators Face In Their Workflows, And Explore How They Currently Workaround Or Resolve These Issues**
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.Title slot="title">
+  Identify Key Challenges And Friction Points BPO Operators Face In Their
+  Workflows, And Explore How They Currently Workaround Or Resolve These Issues
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 _Pain points are opportunities: we set out to uncover moments of friction operators encounter in their daily work—whether caused by tools, processes, or organizational bottlenecks. We also wanted to understand how operators are currently adopting or working around these challenges, as it could reveal gaps in existing systems and surface opportunities._
 
-**Understand What Success Looks Like From The BPO Operator’s Perspective, Including Performance Metrics, Personal Goals, And Sources Of Motivation**
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.Title slot="title">
+  Understand What Success Looks Like From The BPO Operator’s Perspective,
+  Including Performance Metrics, Personal Goals, And Sources Of Motivation
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 _While the primary buyers of our product are business decision makers seeking to enhance back office operations, our end users include BPO employees across a range of roles and levels. As such, it was important to understand how success is defined at each of these levels–whether through business metrics, personal goals, or day-to-day motivators–so that our solution could align with their expectations and needs._
 
-**Explore Perceptions, Expectations And Concerns BPO Operators Have About Automation And AI Tools In Their Work**
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.Title slot="title">
+  Explore Perceptions, Expectations And Concerns BPO Operators Have About
+  Automation And AI Tools In Their Work
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 _If users are skeptical, anxious, or resistant to AI tools, it would be of a risk to us. We wanted to understand BPO operators’ expectations to help guide product positioning and build solutions that can be trusted._
+
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
 
 Working with GoGlobal gave us quick access to a variety of BPO roles. While we knew this might skew our perspective toward one company, their depth of experience made them the best partner for early research.
 
@@ -132,23 +235,65 @@ To make sense of the observations, I mapped out workflow diagrams that captured 
 
 By analyzing these workflows alongside my field notes, I was able to surface the following key insights.
 
-**Payroll specialists do more than run numbers on payroll software–they navigate legal ambiguities and interpret past data because they act as an intermediary between payroll information given by non-expert clients and legally compliant payroll processing.**
+<Callout.Root>
+
+<Callout.Title slot="title">
+  Payroll specialists do more than run numbers on payroll software–they navigate
+  legal ambiguities and interpret past data because they act as an intermediary
+  between payroll information given by non-expert clients and legally compliant
+  payroll processing.
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 The way BPO clients share payroll information like salaries, bonuses, or commissions may not always align with how these categories are defined under payroll law. This creates ambiguity payroll specialists must resolve through legal knowledge and context.
 
 This reveals an opportunity to reduce friction between client input and compliant payroll output so that payroll specialists can ensure better accuracy and compliance.
 
-**Payroll specialists regularly search for and interpret up-to-date or less common legal regulations—often relying on scattered sources and manual calculations.**
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.Title slot="title">
+  Payroll specialists regularly search for and interpret up-to-date or less
+  common legal regulations—often relying on scattered sources and manual
+  calculations.
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 They may need to dig through government websites, legal PDFs, and lawyer blogs, then create one-off Excel formulas—sometimes without clear results. These non-routine tasks interrupt workflow and require time-consuming research.
 
 There’s an opportunity to improve how specialists access, interpret, and apply payroll legal knowledge in their day-to-day work.
 
-**Payroll specialists frequently switch between multiple tools–even within a single workflow–because of fragmented systems and inconsistent data formats.**
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.Title slot="title">
+  Payroll specialists frequently switch between multiple tools–even within a
+  single workflow–because of fragmented systems and inconsistent data formats.
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 Whether entering payroll instructions, calculating work hours, or verifying deductions, they juggle platforms like Outlook, Blue Ocean (payroll platform), Bugyo (payroll calculator), and SmartHR (HR software). This constant switching slows down tasks and increases the risk of manual errors.
 
 There’s an opportunity to reduce operational friction by streamlining workflows—freeing specialists to focus on higher-value, expert tasks rather than repetitive tool-hopping.
+
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
 
 # User Interviews
 
@@ -170,28 +315,84 @@ The interviews were analyzed using a combination of flowcharting and thematic an
 
 Through thematic analysis, we synthesized patterns across interviews to uncover recurring challenges, values, and behaviors. This helped us surface four key insights:
 
-**BPO operators work under constant pressure to be accurate because even small mistakes in payments or reporting can lead to serious financial and compliance consequences.**
+<Callout.Root>
+
+<Callout.Title slot="title">
+  BPO operators work under constant pressure to be accurate because even small
+  mistakes in payments or reporting can lead to serious financial and compliance
+  consequences.
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 Across roles, operators consistently expressed anxiety about making mistakes—particularly in high-stakes tasks like payments, invoicing, and statutory contributions. Errors such as paying the wrong vendor, miscalculating service fees, or missing salary deadlines can lead to penalties, client dissatisfaction, or breaches in compliance.
 
 To manage this risk, teams often implement manual safeguards, such as requiring screenshots at key steps or maintaining detailed SOPs. While these measures add a layer of control, they also introduce friction and don’t fully eliminate the possibility of human error. This highlights an opportunity to explore solutions that support accuracy and confidence.
 
-**BPO operators view timeliness and accuracy as a reflection of their professionalism, but they’re often held back by competing priorities, coordination delays and limited bandwidth.**
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.Title slot="title">
+  BPO operators view timeliness and accuracy as a reflection of their
+  professionalism, but they’re often held back by competing priorities,
+  coordination delays and limited bandwidth.
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 Delivering accurate and timely work is central to how BPO operators define success. They seek to build trust, maintain client satisfaction and uphold their professional standards. But this ideal is often challenged by the reality of their work: juggling multiple clients, tight deadlines, and tasks that are dependent on others’ inputs or approvals.
 
 There is an opportunity to support operators by providing clearer prioritization systems, highlighting coordination across functions, and reducing bottlenecks.
 
-**Local accounting knowledge is essential for BPO specialists to perform their work accurately, but fragmented sources, inconsistent documentation, and gaps across countries make it difficult to access and maintain.**
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.Title slot="title">
+  Local accounting knowledge is essential for BPO specialists to perform their
+  work accurately, but fragmented sources, inconsistent documentation, and gaps
+  across countries make it difficult to access and maintain.
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 Specialists depend on country-specific tax rules, statutory requirements, and local processes to deliver accurate and compliant services. Yet accessing this knowledge—especially when onboarding clients in new countries—is often a challenge. Information is scattered across Excel files, internal platforms, and informal channels, with no clear single source of truth. This not only slows down workflows but also increases the risk of relying on outdated or incomplete guidance.
 
 There’s an opportunity to improve how local knowledge is captured, organized, and shared—so specialists can easily access reliable information and feel confident in delivering high-quality service across regions.
 
-**BPO operators spend a significant amount of time on repetitive tasks–manually stitching together fragmented systems using tools like Excel–leaving less time for expert work.**
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.Title slot="title">
+  BPO operators spend a significant amount of time on repetitive tasks–manually
+  stitching together fragmented systems using tools like Excel–leaving less time
+  for expert work.
+</Callout.Title>
+
+<Callout.Default>
+<Prose>
 
 To complete routine workflows, operators often switch between Xero, bank portals, Excel, SharePoint, and email—extracting data, converting files, and cleaning templates by hand. Excel acts as a “glue” to connect these systems, but this manual work slows them down and diverts focus from higher-value tasks.
 
 There’s an opportunity to streamline these workflows by reducing the need for manual data handling and system-switching—freeing operators to focus on expert, judgment-based work.
+
+</Prose>
+</Callout.Default>
+
+</Callout.Root>
 
 </ProjectLayout>

@@ -1,0 +1,11 @@
+---
+import { type HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"h3"> {}
+
+const { ...rest } = Astro.props;
+---
+
+<h3 class="font-medium" {...rest}>
+  <slot />
+</h3>

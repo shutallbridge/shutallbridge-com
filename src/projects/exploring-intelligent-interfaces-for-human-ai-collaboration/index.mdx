@@ -19,10 +19,15 @@ import { Image } from "astro:assets";
 import { ProjectLayout } from "@/layouts/project-layout";
 import { Bento } from "@/components/bento";
 import { Callout } from "@/components/callout";
+import { FullBleed } from "@/components/full-bleed";
+import { ImageDisplay } from "@/components/image-display";
 import tileAPrompts from "./tile-a-prompts.png";
 import tileCSide from "./tile-c-side.png";
 import tileDChat from "./tile-d-chat.png";
 import tileECursor from "./tile-e-cursor.png";
+import navigateToList from "./navigate-to-list.gif";
+import fillInForm from "./fill-in-form.gif";
+import userJourney from "./user-journey.png";
 
 <ProjectLayout {...frontmatter}>
 
@@ -94,5 +99,74 @@ This project began while I was interning as a design engineer at Tofu – an acc
 I was assigned to research and prototype ways to tackle these issues, and worked independently under the supervision of the product manager and the CTO. Along the way, I collaborated with the company’s AI engineer to better understand the capabilities and limitations of LLMs, which informed the prototype’s technical decisions.
 
 After the internship, I continued developing the concept independently. I realized the challenges of complexity and repetition weren’t unique to payroll—they exist across many business tools. This led to Harper ERP: an open-source, hypothetical ERP system focused on applicant tracking, built as a playground for exploring new patterns in human-AI collaboration.
+
+---
+
+# Adaptive Interface
+
+Harper AI can help users navigate complex dashboards based on their current task. It's an alternative to a navigation menu based on conventional information architecture.
+
+<FullBleed>
+  <ImageDisplay
+    src={navigateToList}
+    alt=""
+    class="w-full max-w-5xl mx-auto px-6"
+  />
+</FullBleed>
+
+# Reducing Repetitive Work
+
+Harper AI can fill in forms based on an external document. This reduces the workload for back-office employees having to fill in repetitive forms over and over.
+
+<FullBleed>
+  <ImageDisplay src={fillInForm} alt="" class="w-full max-w-5xl mx-auto px-6" />
+</FullBleed>
+
+---
+
+# Research
+
+## Qualitative Research
+
+Initial insights came from the PM, who noted that many customers struggled to find the right screen—even when they had a clear intent. The CTO observed users frequently switching between our app and external tools like PDFs and Excel to manually enter payroll data. Mapping these behaviors into a user journey map helped to surface key friction points and highlight design opportunities.
+
+<FullBleed>
+  <ImageDisplay
+    src={userJourney}
+    alt=""
+    class="w-full max-w-5xl mx-auto px-6"
+    noRadius
+  />
+</FullBleed>
+
+## Design Precedent Research
+
+There is an interface pattern that takes user intent and directly turns it into action: a command palette. Common in tools like VS Code, Linear and Superhuman, command palettes allow users to press a keyboard shortcut (like `Cmd+K`), type what they want to do–such as “dark mode”–and immediately trigger that action, without digging through menus.
+
+I took inspiration from this model as a starting point for intent-based interaction. It drew useful parallels in reducing friction between user thought and system action. Command palettes however, have a notable limitation: users must type the right keywords else they won’t find the system action they’re looking for.
+
+These limitations led me to explore how LLMs could extend the command palette pattern–bringing in conversational input, contextual understanding, and more forgiving interaction.
+
+# Design and Development
+
+I moved between low-fidelity wireframes in Whimsical and prototyping with React and the Vercel AI SDK. I started with a simple command palette-like dialog that allowed users to chat with an LLM, which could then navigate them to the appropriate screen.
+
+The key to enabling this behavior was the use of tool calls–a mechanism that allows an LLM to perform actions, like navigating or querying data, as if it were another user of the app.
+
+While experimenting with tool calls, I realized I could also give the LLM access to a “fill-in form” tool. This allowed an LLM to read from an external source–like a PDF resume–and fill-in a form within the software on the user’s behalf. This directly addressed the CTO’s observations about users toggling between the product and external documents for manual data entry tasks.
+
+As I later built the Harper ERP, I shifted away from hiding the AI interaction behind a shortcut. Instead, I opted for a more conversation-centered layout: a persistent chat panel alongside a shared workspace, allowing the user and the LLM to collaborate in real time.
+
+This has sparked a broader reflection: perhaps we’re moving toward a new paradigm in business software–and more broadly in HCI–where humans and AI collaborate through conversations working together in a shared workspace. In fact, we’re already seeing this pattern in AI code editors like Cursor or Claude.
+
+That said, for existing business software, the command-palette approach still offers a lightweight and accessible way to incorporate AI-assisted features.
+
+# What's Next?
+
+I plan to continue exploring the potential of human-AI collaboration through shared workspaces. Having built several prototypes, I’ve started to recognize common patterns in both interface design and implementation when creating AI-native experiences.
+
+Much of the interface logic and interface components in Harper ERP is already written to be reusable. I plan to build on this foundation and extract it into a standalone TypeScript library—making it easier for myself and others to create AI-integrated interfaces.
+
+As I continue developing the library and testing these ideas, I’m excited to see how they might evolve in real-world use cases and contribute to the next wave of human-computer interaction.
 
 </ProjectLayout>

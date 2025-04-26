@@ -22,6 +22,8 @@ import tileFHome from "./tile-f-home.png";
 import websiteHome from "./website-home.png";
 import websiteProject from "./website-project.png";
 import archetypes from "./archetypes.png";
+import palettes from "./palettes.png";
+import sketches from "./sketches.png";
 
 <ProjectLayout {...frontmatter}>
 
@@ -116,7 +118,19 @@ I also considered adding a search feature to help users quickly find specific pr
 
 In designing the layout, I explored several options and chose a split-panel structure. When browsing through a list of projects, the large main panel provides ample space for cover images. When viewing an individual project, the layout adapts well to images of varying size and quality—a factor outside my control, as all content was submitted by students.
 
+<FullBleed>
+  <ImageDisplay
+    src={sketches}
+    alt=""
+    class="w-full max-w-5xl mx-auto px-6"
+    noRadius
+    variant="white"
+  />
+</FullBleed>
+
 The site’s visual identity was based on the colors and typography provided by ADP. However, the original palette lacked accessible color pairings. To address this, I derived a new color palette by adjusting saturation and brightness while preserving the look and feel of the original identity.
+
+<ImageDisplay src={palettes} alt="" class="w-full mx-auto" variant="white" />
 
 # Developing the Website
 

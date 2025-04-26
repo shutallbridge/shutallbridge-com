@@ -37,17 +37,24 @@ const { as: Tag = "div" } = Astro.props;
       @apply italic;
     }
 
-    & > ul {
+    & > ul,
+    & > ul > li > ul {
       @apply list-disc;
     }
 
-    & > ol {
+    & > ol,
+    & > ol > li > ol {
       @apply list-decimal;
     }
 
     & > ul,
     & > ol {
       @apply pl-5;
+    }
+
+    & ul > li > ul,
+    & > ol > li > ol {
+      @apply pl-5 mt-2;
     }
 
     & li {

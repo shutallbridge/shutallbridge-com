@@ -13,10 +13,17 @@ import { ProjectLayout } from "@/layouts/project-layout";
 import { Bento } from "@/components/bento";
 import { Callout } from "@/components/callout";
 import { Prose } from "@/components/prose";
+import { FullBleed } from "@/components/full-bleed";
+import { ImageDisplay } from "@/components/image-display";
 import tileAMockDashboard from "./tile-a-mock-dashboard.png";
 import tileCWorkflow from "./tile-c-workflow.png";
 import tileDAnalysis from "./tile-d-analysis.png";
 import tileEMockInvoice from "./tile-e-mock-invoice.png";
+import setUpDan from "./set-up-dan.png";
+import setUpWorkflow from "./set-up-workflow.png";
+import payrollFlowChart from "./payroll-flowchart.png";
+import thematicAnalysis from "./thematic-analysis.png";
+import focusMatrix from "./focus-matrix.png";
 
 <ProjectLayout {...frontmatter}>
 
@@ -144,6 +151,22 @@ _The early discovery and product framing I led helped lay the foundation for thi
 
 </Callout.Root>
 
+# Early Concepts
+
+<FullBleed>
+  <ImageDisplay
+    src={setUpWorkflow}
+    alt=""
+    class="w-full max-w-5xl mx-auto px-6"
+  />
+</FullBleed>
+
+<FullBleed>
+  <ImageDisplay src={setUpDan} alt="" class="w-full max-w-5xl mx-auto px-6" />
+</FullBleed>
+
+---
+
 # Kicking Off Product Discovery
 
 We began with a discovery phase to understand real-world back-office operations at GoGlobal, a business processing outsourcing (BPO) provider. Our research objectives focused on four key areas:
@@ -229,6 +252,16 @@ As a payroll BPO, GoGlobal manages payroll processing on behalf of client compan
 Before diving in, I familiarized myself with Japanese payroll laws and practices to better understand the workflows. Over the course of two weeks, I observed payroll specialists in their day-to-day work, with each session typically lasting around two to four hours.
 
 To make sense of the observations, I mapped out workflow diagrams that captured steps, tools, and decisions involved in each stage of the payroll process.
+
+<FullBleed>
+  <ImageDisplay
+    src={payrollFlowChart}
+    alt=""
+    class="w-full max-w-5xl mx-auto px-6"
+    variant="white"
+    bleed="none"
+  />
+</FullBleed>
 
 By analyzing these workflows alongside my field notes, I was able to surface the following key insights.
 
@@ -324,6 +357,14 @@ We recognized that user interviews don’t offer the same contextual depth as in
 
 The interviews were analyzed using a combination of flowcharting and thematic analysis. A swimlane flowchart helped us visualize end-to-end workflows and understand how different teams collaborate across functions. Thematic analysis allowed us to identify recurring pain points, as well as surface participants’ goals and underlying values.
 
+<FullBleed>
+  <ImageDisplay
+    src={thematicAnalysis}
+    alt=""
+    class="w-full max-w-5xl mx-auto px-6"
+  />
+</FullBleed>
+
 Through thematic analysis, we synthesized patterns across interviews to uncover recurring challenges, values, and behaviors. This helped us surface four key insights:
 
 <Callout.Root>
@@ -405,5 +446,129 @@ There’s an opportunity to streamline these workflows by reducing the need for 
 </Callout.DefaultSlot>
 
 </Callout.Root>
+
+# Aligning on Product Focus
+
+With a detailed understanding of real-world back-office operations, we came together as a team to narrow our focus. While the engineering team had been actively experimenting with AI models and building foundational infrastructure in parallel, we knew that having a sharp focus was essential to move from exploration to execution.
+
+The main decision was whether to **focus horizontally or vertically**:
+
+- **Horizontal focus**: Solve problems that cut across multiple back-office domains—most notably around knowledge management and communication friction. This approach would allow us to tackle pain points across various functions (accounting, payroll, HR, payments)
+- **Vertical focus**: Go deep into a single back-office function (e.g., just accounting or just payroll) and build a best-in-class, specialized solution optimized for the nuances of that domain.
+
+We also considered our target customer:
+
+- **End clients**: Enterprises and SMBs with internal back-office teams looking to improve their operations.
+- **Processors**: BPO firms like GoGlobal, who manage back-office operations for other companies and operate under stricter accuracy, timeliness, and compliance expectations.
+
+<FullBleed>
+  <ImageDisplay
+    src={focusMatrix}
+    alt=""
+    class="w-full max-w-5xl mx-auto px-6"
+    bleed="all"
+  />
+</FullBleed>
+
+Each option came with its own strengths and trade-offs across technical viability, competitiveness and go-to-market-strategy.
+
+<Callout.Root>
+
+<Callout.TitleSlot slot="title">
+  Email Triage and Inbox Management
+</Callout.TitleSlot>
+
+<Callout.DefaultSlot>
+<Prose>
+
+An email assist tool to highlight critical emails, draft replies, and organize tasks across different back-office functions.
+
+- Strengths
+  - **Wide Market Coverage**: Email is the most used communication method with operators raising issues with missed emails.
+- Weaknesses
+  - **Incremental Value Add**: Improving email communication might be convenient, but it won’t directly increase capacity or reduce complexity.
+  - **Unclear User Need**: Communication friction was not the most prominent pain point and it’s unclear how it would differ from general office and productivity tools with AI features.
+
+</Prose>
+</Callout.DefaultSlot>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.TitleSlot slot="title">
+  Portal for BPOs and Organize End-Client Coordination
+</Callout.TitleSlot>
+
+<Callout.DefaultSlot>
+<Prose>
+
+A large part of BPO is still conducted via email and attachments–a messy process with hundreds of files. We could become the first point of contact with end-clients via portals or AI agents, then coordinate with end-clients on behalf of BPOs and organize files.
+
+- Strengths
+  - **Wide Market Coverage**: Coordinating with end-clients and BPO is common across all BPO functions.
+  - **Provide Value in Project Organization**: Helping BPOs streamline their coordination with their clients cuts down on time spent on manual email exchanges and file organization.
+  - **Easier Automation**: With the coordination streamlined into a system, automating some parts after this coordination will be easier giving us a pathway into more advanced AI automation.
+- Weaknesses
+  - **Barrier to Adoption**: With any “portal” tools that attempts to streamline a business process, the company’s organizational structure and SOPs often have to change together. This is on top of learning curves for all users of the system.
+  - **Long-Term Adoption Risk**: The common risk with these “portal” tools is that end-clients and BPOs alike will send ad-hoc emails outside of the system if certain use cases are not supported.
+
+</Prose>
+</Callout.DefaultSlot>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.TitleSlot slot="title">Specific Workflow Automation</Callout.TitleSlot>
+
+<Callout.DefaultSlot>
+<Prose>
+
+Fully or partially automate one specific back-office process such as invoice processing, bank reconciliation, payment preparation.
+
+- Strengths
+  - **Clear ROI**: Automating one high-impact workflow can directly increase capacity and show clear value.
+  - **Clear Value Proposition**: Clear ROI and focused workflow is an easy pitch to our customers.
+- Weaknesses
+  - **Narrow Scope**: Focusing only one specific workflow can risk providing too little value. The chosen workflow must be high-impact and high-pain.
+
+</Prose>
+</Callout.DefaultSlot>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.TitleSlot title="title">
+  Specific Automated Back-Office Service For End-Clients
+</Callout.TitleSlot>
+
+<Callout.DefaultSlot>
+<Prose>
+
+Offer a fully-automated back-office service ourselves directly to end-clients. Choose a vertical that can be automated easily (e.g. VAT refund service).
+
+- Strengths
+  - **Clear Value Proposition**: We can provide a specific back-office function at a fraction of the cost to non-automated services.
+  - **Complete Control of Process**: There is no need to cater to existing BPO workflows, we can redefine how back-office works.
+- Weaknesses
+  - **Isolated Vertical**: End-clients can only use our service for a specific back-office need. They would have to work with other BPOs for all other back-office needs.
+  - **Compliance and Know-Hows**: Providing a complete back-office service would require compliance implementation and more expertise–something we didn’t have.
+
+</Prose>
+</Callout.DefaultSlot>
+
+</Callout.Root>
+
+After weighing the trade-offs, we chose to focus on automating a specific BPO workflow. While there was some risk of being too niche, we could mitigate it by targeting a workflow with both high pain and high impact.
+
+We considered several workflows that consumed a significant portion of time and played a critical role: AP invoice processing, bank reconciliation, payroll processing, and payments. We ultimately decided on AP invoice processing, after systematically eliminating the other options.
+
+- **Bank reconciliation** required handling a wide range of messy edge cases, such as timing mismatches, partial payments, and foreign currency adjustments. In addition, many accounting platforms already offer partial auto-reconciliation features, making the value of a standalone AI solution less compelling.
+- **Payroll processing** was highly country-specific, with complex, localized compliance requirements. Unlike accounting, which is somewhat standardized through frameworks like GAAP, payroll rules vary significantly across regions, increasing complexity.
+- **Payments** involved significant security risks, as automating payment preparation would require integrations with sensitive bank portals or APIs—raising concerns around compliance and liability.
+
+AP invoice processing, on the other hand, presented a large, repetitive workload with relatively standardized processes and clear, measurable ROI—making it the strongest candidate to focus our efforts.
 
 </ProjectLayout>

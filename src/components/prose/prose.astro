@@ -50,6 +50,10 @@ const { as: Tag = "div" } = Astro.props;
       @apply mb-2;
     }
 
+    & > blockquote {
+      @apply border-l-4 border-gray-800 pl-3;
+    }
+
     /* extra space around headings */
     & > * + h2 {
       @apply mt-10 mb-4;

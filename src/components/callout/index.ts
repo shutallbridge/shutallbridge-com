@@ -1,22 +1,22 @@
 import Root, { type Props as RootProps } from "./root.astro";
-import Icon, { type Props as IconProps } from "./icon.astro";
-import Title, { type Props as TitleProps } from "./title.astro";
-import Default from "./default.astro";
+import IconSlot, { type Props as IconSlotProps } from "./icon-slot.astro";
+import TitleSlot, { type Props as TitleSlotProps } from "./title-slot.astro";
+import DefaultSlot from "./default-slot.astro";
 
 const Callout = {
   Root,
-  Icon,
-  Title,
-  Default,
+  IconSlot,
+  TitleSlot,
+  DefaultSlot,
 };
 
 export {
   type RootProps,
-  type IconProps,
-  type TitleProps,
+  type IconSlotProps,
+  type TitleSlotProps,
   Root,
-  Icon,
-  Title,
-  Default,
+  IconSlot,
+  TitleSlot,
+  DefaultSlot,
   Callout,
 };

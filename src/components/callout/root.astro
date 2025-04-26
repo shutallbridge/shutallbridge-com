@@ -6,7 +6,11 @@ export interface Props extends HTMLAttributes<"aside"> {}
 const { ...rest } = Astro.props;
 ---
 
-<aside class="bg-gray-100 px-5 py-4 rounded-sm flex gap-x-3" {...rest}>
+<aside
+  data-component="callout"
+  class="bg-gray-100 px-5 py-4 rounded-sm flex gap-x-3"
+  {...rest}
+>
   <slot name="icon" />
   <div class="space-y-4">
     <slot name="title" />

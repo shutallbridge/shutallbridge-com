@@ -25,6 +25,10 @@ const { as: Tag = "div" } = Astro.props;
       @apply text-2xl;
     }
 
+    & > h3 {
+      @apply text-xl;
+    }
+
     & strong {
       @apply font-bold;
     }
@@ -54,9 +58,23 @@ const { as: Tag = "div" } = Astro.props;
       @apply border-l-4 border-gray-800 pl-3;
     }
 
+    & > code {
+      @apply font-mono;
+    }
+
+    & > hr {
+      @apply border-gray-300;
+    }
+
     /* extra space around headings */
-    & > * + h2 {
+    & > * + h2,
+    & > * + h3 {
       @apply mt-10 mb-4;
+    }
+
+    /* extra space around dividers */
+    & > * + hr {
+      @apply mt-16 mb-12;
     }
 
     /* extra space around image displays */

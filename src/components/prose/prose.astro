@@ -49,16 +49,16 @@ const { as: Tag = "div" } = Astro.props;
 
     & > ul,
     & > ol {
-      @apply pl-5;
+      @apply pl-6;
     }
 
     & ul > li > ul,
     & > ol > li > ol {
-      @apply pl-5 mt-2;
+      @apply pl-2 mt-2;
     }
 
     & li {
-      @apply mb-2;
+      @apply pl-2 mb-2;
     }
 
     & > blockquote {
@@ -88,6 +88,16 @@ const { as: Tag = "div" } = Astro.props;
     & > * + [data-component="full-bleed"] > [data-component="image-display"],
     & > * + [data-component="image-display"] {
       @apply mt-12 mb-12;
+    }
+
+    /* todo: this might need a new component for list style callouts */
+    & > *:not([data-component="callout"]) + [data-component="callout"] {
+      @apply mt-6;
+    }
+    & > [data-component="callout"] {
+      &:not(:has(+ [data-component="callout"])) {
+        @apply mb-6;
+      }
     }
   }
 </style>

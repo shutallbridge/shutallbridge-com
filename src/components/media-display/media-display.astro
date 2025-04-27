@@ -1,0 +1,43 @@
+---
+import { type HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"div"> {
+  caption?: string;
+  variant?: "gray" | "white";
+  bleed?: "top" | "bottom" | "left" | "right" | "all";
+  noRadius?: boolean;
+}
+
+const {
+  caption,
+  variant = "gray",
+  bleed,
+  noRadius = false,
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+<div
+  data-component="content-display"
+  class:list={["space-y-2", className]}
+  {...rest}
+>
+  <div
+    class:list={[
+      "rounded-sm",
+      { "bg-gray-100": variant === "gray" },
+      { "bg-white": variant === "white" },
+      { "p-4": !bleed },
+      { "px-4 pt-4": bleed === "bottom" },
+      { "px-4 pb-4": bleed === "top" },
+      { "pr-4 py-4": bleed === "left" },
+      { "pl-4 py-4": bleed === "right" },
+    ]}
+  >
+    <div class:list={[{ "rounded-sm": !noRadius }]}>
+      <slot />
+    </div>
+  </div>
+  {caption ? <p class="text-sm text-gray-500 text-center">{caption}</p> : null}
+</div>

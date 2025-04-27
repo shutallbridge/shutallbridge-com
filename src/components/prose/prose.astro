@@ -85,8 +85,8 @@ const { as: Tag = "div" } = Astro.props;
     }
 
     /* extra space around image displays */
-    & > * + [data-component="full-bleed"] > [data-component="image-display"],
-    & > * + [data-component="image-display"] {
+    & > * + [data-component="full-bleed"] > [data-component="content-display"],
+    & > * + [data-component="content-display"] {
       @apply mt-12 mb-12;
     }
 

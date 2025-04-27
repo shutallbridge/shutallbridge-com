@@ -20,6 +20,7 @@ import { ProjectLayout } from "@/layouts/project-layout";
 import { Bento } from "@/components/bento";
 import { Callout } from "@/components/callout";
 import { FullBleed } from "@/components/full-bleed";
+import { MediaDisplay } from "@/components/media-display";
 import { ImageDisplay } from "@/components/image-display";
 import tileAPrompts from "./tile-a-prompts.png";
 import tileCSide from "./tile-c-side.png";
@@ -28,6 +29,8 @@ import tileECursor from "./tile-e-cursor.png";
 import navigateToList from "./navigate-to-list.gif";
 import fillInForm from "./fill-in-form.gif";
 import userJourney from "./user-journey.png";
+
+<script is:inline src="https://player.vimeo.com/api/player.js"></script>
 
 <ProjectLayout {...frontmatter}>
 
@@ -107,11 +110,17 @@ After the internship, I continued developing the concept independently. I realiz
 Harper AI can help users navigate complex dashboards based on their current task. It's an alternative to a navigation menu based on conventional information architecture.
 
 <FullBleed>
-  <ImageDisplay
-    src={navigateToList}
-    alt=""
-    class="w-full max-w-5xl mx-auto px-6"
-  />
+  <MediaDisplay class="w-full aspect-video max-w-5xl mx-auto px-6">
+    <div style="padding:64.9% 0 0 0;position:relative;">
+      <iframe
+        src="https://player.vimeo.com/video/1079066024?h=f2a82a5c3e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;"
+        title="navigate-to-list"
+      ></iframe>
+    </div>
+  </MediaDisplay>
 </FullBleed>
 
 # Reducing Repetitive Work
@@ -119,7 +128,17 @@ Harper AI can help users navigate complex dashboards based on their current task
 Harper AI can fill in forms based on an external document. This reduces the workload for back-office employees having to fill in repetitive forms over and over.
 
 <FullBleed>
-  <ImageDisplay src={fillInForm} alt="" class="w-full max-w-5xl mx-auto px-6" />
+  <MediaDisplay class="w-full aspect-video max-w-5xl mx-auto px-6">
+    <div style="padding:64.9% 0 0 0;position:relative;">
+      <iframe
+        src="https://player.vimeo.com/video/1079066003?h=6ae4aa49a3&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;"
+        title="navigate-to-list"
+      ></iframe>
+    </div>
+  </MediaDisplay>
 </FullBleed>
 
 ---

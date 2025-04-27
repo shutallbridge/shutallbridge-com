@@ -1,47 +1,19 @@
 ---
-import { type HTMLAttributes } from "astro/types";
 import { type ImageMetadata } from "astro";
 import { Image } from "astro:assets";
+import {
+  MediaDisplay,
+  type MediaDisplayProps,
+} from "@/components/media-display";
 
-export interface Props extends HTMLAttributes<"div"> {
+export interface Props extends MediaDisplayProps {
   src: ImageMetadata;
   alt: string;
-  caption?: string;
-  variant?: "gray" | "white";
-  bleed?: "top" | "bottom" | "left" | "right" | "all";
-  noRadius?: boolean;
 }
 
-const {
-  src,
-  alt,
-  caption,
-  variant = "gray",
-  bleed,
-  noRadius = false,
-  class: className,
-  ...rest
-} = Astro.props;
+const { src, alt, ...rest } = Astro.props;
 ---
 
-<div
-  data-component="image-display"
-  class:list={["space-y-2", className]}
-  {...rest}
->
-  <div
-    class:list={[
-      "rounded-sm",
-      { "bg-gray-100": variant === "gray" },
-      { "bg-white": variant === "white" },
-      { "p-4": !bleed },
-      { "px-4 pt-4": bleed === "bottom" },
-      { "px-4 pb-4": bleed === "top" },
-      { "pr-4 py-4": bleed === "left" },
-      { "pl-4 py-4": bleed === "right" },
-    ]}
-  >
-    <Image src={src} alt={alt} class:list={[{ "rounded-sm": !noRadius }]} />
-  </div>
-  {caption ? <p class="text-sm text-gray-500 text-center">{caption}</p> : null}
-</div>
+<MediaDisplay {...rest}>
+  <Image src={src} alt={alt} />
+</MediaDisplay>

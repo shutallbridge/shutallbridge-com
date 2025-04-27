@@ -24,6 +24,8 @@ import setUpWorkflow from "./set-up-workflow.png";
 import payrollFlowChart from "./payroll-flowchart.png";
 import thematicAnalysis from "./thematic-analysis.png";
 import focusMatrix from "./focus-matrix.png";
+import automationLevels from "./automation-levels.png";
+import spreadsheetSop from "./spreadsheet-sop.png";
 
 <ProjectLayout {...frontmatter}>
 
@@ -470,24 +472,24 @@ We also considered our target customer:
   />
 </FullBleed>
 
-Each option came with its own strengths and trade-offs across technical viability, competitiveness and go-to-market-strategy.
+We brainstormed potential solutions to address the pain points we uncovered. These solutions could be roughly categorized into four distinct options below. Each option came with its own strengths and trade-offs across technical viability, competitiveness and go-to-market strategy.
 
 <Callout.Root>
 
 <Callout.TitleSlot slot="title">
-  Email Triage and Inbox Management
+  Email and Knowledge Assistant
 </Callout.TitleSlot>
 
 <Callout.DefaultSlot>
 <Prose>
 
-An email assist tool to highlight critical emails, draft replies, and organize tasks across different back-office functions.
+An assistant to highlight critical emails, draft replies, organize tasks and answer questions based on general back-office knowledge and knowledge from past emails and internal files.
 
 - Strengths
-  - **Wide Market Coverage**: Email is the most used communication method with operators raising issues with missed emails.
+  - **Wide Market Coverage**: Across back office functions, communication friction and knowledge management are shared pain points.
 - Weaknesses
-  - **Incremental Value Add**: Improving email communication might be convenient, but it won’t directly increase capacity or reduce complexity.
-  - **Unclear User Need**: Communication friction was not the most prominent pain point and it’s unclear how it would differ from general office and productivity tools with AI features.
+  - **Incremental Value Add**: Assisting with emails and knowledge management might be convenient, but it won’t directly increase capacity or reduce complexity.
+  - **Unclear User Need**: Communication friction in particular was not the most prominent pain point and it’s unclear how it would differ from general office and productivity tools with AI features.
 
 </Prose>
 </Callout.DefaultSlot>
@@ -528,7 +530,7 @@ A large part of BPO is still conducted via email and attachments–a messy proce
 Fully or partially automate one specific back-office process such as invoice processing, bank reconciliation, payment preparation.
 
 - Strengths
-  - **Clear ROI**: Automating one high-impact workflow can directly increase capacity and show clear value.
+  - **Clear ROI**: Automating one high-impact workflow can directly increase capacity and enable BPOs to meet tight deadlines.
   - **Clear Value Proposition**: Clear ROI and focused workflow is an easy pitch to our customers.
 - Weaknesses
   - **Narrow Scope**: Focusing only one specific workflow can risk providing too little value. The chosen workflow must be high-impact and high-pain.
@@ -570,5 +572,115 @@ We considered several workflows that consumed a significant portion of time and 
 - **Payments** involved significant security risks, as automating payment preparation would require integrations with sensitive bank portals or APIs—raising concerns around compliance and liability.
 
 AP invoice processing, on the other hand, presented a large, repetitive workload with relatively standardized processes and clear, measurable ROI—making it the strongest candidate to focus our efforts.
+
+# Refining the Product Direction
+
+While our discovery work had already surfaced high-level pain points around invoice processing, we knew that designing an effective AI solution required a much more detailed and nuanced understanding of how invoices are actually handled in practice.
+
+Working closely with GoGlobal’s accounting team, the CSM and I conducted in-depth interviews and workshops to unpack each step of the invoice processing workflow. We documented:
+
+- Typical document types (e.g., invoices, purchase orders, receipts)
+- Required validations (e.g., matching invoice line items to supplier agreements, verifying vendor bank details)
+- Approval chains
+- Common exception handling processes
+- Systems and tools involved at each stage
+
+To organize and synthesize our findings, we created spreadsheet that mapped the end-to-end process. This process map included not just the standard flow, but also the common variations and points of failure that accounting specialists routinely encounter.
+
+<FullBleed>
+  <ImageDisplay
+    src={spreadsheetSop}
+    alt=""
+    class="w-full max-w-5xl mx-auto px-6"
+  />
+</FullBleed>
+
+By visualizing the workflow this way, we were able to:
+
+- Identify the steps most amenable to AI automation (e.g., information extraction, validation checks)
+- Highlight where human review was still critical (e.g., resolving ambiguous cases, sudden number fluctuations)
+- Build a clearer understanding of how we could measure and demonstrate value—such as time saved per invoice or reduction in error rates
+
+This detailed process mapping became a foundational artifact for the team and directly guided our early prototyping efforts.
+
+At this stage, I created early concept wireframes to help align our team, spark discussions around how the product should work, and gather early feedback from GoGlobal accounting specialists with a more concrete picture.
+
+The engineering team had been prototyping AI agents capable of extracting invoice data, seeking approvals from accounting specialists, and entering the finalized data into Xero. In parallel, I helped identify and scope the key components of the invoice processing workflow where AI could meaningfully drive automation:
+
+- **Data extraction and formatting**
+  - **PDF/image extraction**: Extract invoice information using vision models to handle a wide range of file types and layouts.
+  - **Field identification**: Identify key fields such as invoice number, vendor name, due date, total amount, and tax type from extracted data.
+  - **Data standardization**: Normalize inconsistent data formats (e.g., date formats, string formats) to create clean, structured invoice entries.
+- **Knowledge and inference**
+  - **Vendor recognition**: Matching extracted vendor details with existing records
+  - **COA mapping**: Determining which account to assign based on invoice contents
+  - **Tax rate:** Identifying and applying the appropriate VAT/GST
+  - **Withholding tax**: Check if an invoice is subject to withholding tax by referencing local accounting law
+  - **Prepayments and accrual expenses**: Detecting invoices subject to accrual accounting practices and getting the user involved to check
+
+Breaking down the workflow into these distinct components helped me to shape the roadmap into four technical and product milestones:
+
+<FullBleed>
+  <ImageDisplay
+    src={automationLevels}
+    alt=""
+    variant="white"
+    class="w-full max-w-5xl mx-auto px-6"
+  />
+</FullBleed>
+
+<Callout.Root>
+
+<Callout.TitleSlot title="title">Level 1</Callout.TitleSlot>
+
+<Callout.DefaultSlot>
+<Prose>
+
+- **Remove Grunt Work**: Automate all repetitive invoice processing tasks, such as collecting invoices from email or SharePoint and converting files into PDF format.
+- **Information Extraction**: Accurately extract key invoice data into a structured format, regardless of layout differences or handwritten content.
+- **Draft Entry**: Automatically create invoice entries in the accounting system, eliminating manual data entry tasks like typing invoice numbers or vendor names.
+
+</Prose>
+</Callout.DefaultSlot>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.TitleSlot title="title">Level 2</Callout.TitleSlot>
+
+<Callout.DefaultSlot>
+<Prose>
+
+- Includes all capabilities from Level 1
+- **Enhanced Accuracy**: Improve extraction accuracy and expand support to more complex fields that require accounting knowledge, such as handling accruals and prepaid expense amortizations under GAAP standards.
+
+</Prose>
+</Callout.DefaultSlot>
+
+</Callout.Root>
+
+<Callout.Root>
+
+<Callout.TitleSlot title="title">Level 3</Callout.TitleSlot>
+
+<Callout.DefaultSlot>
+<Prose>
+
+- Includes all capabilities from Levels 1 and 2
+- **Confidence in Accuracy**: Assess and flag whether an invoice entry is accurate or requires human review, enabling safe automation with minimal oversight.
+
+</Prose>
+</Callout.DefaultSlot>
+
+</Callout.Root>
+
+Reaching **Level 2** would require significant refinement of our prompts and fine-tuning of models. At this stage, we could fully leverage GoGlobal’s historical invoice data to improve extraction accuracy, inference quality, and overall system reliability.
+
+The transition from **Level 2 to Level 3** represents the most significant leap in value. In Level 2, although AI could populate invoice entries with high accuracy, human specialists would still need to review _every_ entry before finalization to catch potential errors. In contrast, Level 3 introduces selective human review: the AI agent not only improves in accuracy but also flags invoices that require human attention, allowing low-risk entries to be processed autonomously.
+
+This shift would dramatically expand the capacity of BPO operations—freeing specialists to focus only on edge cases and complex judgments while allowing AI to confidently handle the majority of routine invoice processing.
+
+After helping define the initial product direction and roadmap, I wrapped up my involvement. Since then, the team has continued to iterate and, as of March 2025, is onboarding early adopters to further validate and improve the system.
 
 </ProjectLayout>

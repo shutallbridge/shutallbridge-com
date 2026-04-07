@@ -1,6 +1,6 @@
 ---
 import { type HTMLAttributes } from "astro/types";
-import { Icon } from "astro-icon/components";
+import ExternalLinkIcon from "@lucide/astro/icons/external-link";
 
 export interface Props extends HTMLAttributes<"a"> {
   fullWidth?: boolean;
@@ -28,7 +28,7 @@ const {
   <slot />
   <span class="text-md">
     <slot name="icon">
-      <Icon name="lucide:external-link" />
+      <ExternalLinkIcon class="size-4" />
     </slot>
   </span>
 </a>
